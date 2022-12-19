@@ -1,8 +1,25 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { useEffect } from 'react';
 import ExploreContainer from '../components/ExploreContainer';
 import './Tab2.css';
 
+import { useHistory } from 'react-router-dom'
+
 const Tab2: React.FC = () => {
+
+  useEffect(() => {
+    console.log("First wisit: Tab2")        
+  }, []);
+
+  const history = useHistory()
+  useEffect(() => {
+      history.listen((location) => {
+          if (location.pathname == "/tab2"){
+            console.log("Rewisiting: Tab2")  
+          }
+      })
+  }, [history])
+
   return (
     <IonPage>
       <IonHeader>
